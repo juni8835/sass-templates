@@ -1,0 +1,50 @@
+@use 'variables';
+@use 'typography';
+@use 'functions';
+
+@mixin varEach($name, $list) {
+  @each $key, $value in $list {
+    @if (type-of($value) == 'map') {
+      @each $k, $v in $value {
+        --#{$name}-#{'#{$key}'}-#{'#{$k}'}: #{$v};
+      }
+    } @else {
+      --#{$name}-#{'#{$key}'}: #{$value};
+    }
+  }
+}
+
+@mixin mq($key, $deirection: 'min') {
+  $size: map-get(variables.$breakpoints, $key);
+
+  @if ($size) {
+    @media only screen and (#{$deirection}-width: #{$size}) {
+      @content;
+    }
+  } @else {
+    @error '#{$key} does not exist in the $breakpoints';
+  }
+}
+
+@mixin auto-prefix($name, $value) {
+  @each $prefix in variables.$prefix-list {
+    -#{$prefix}-#{$name}: $value;
+  }
+  #{$name}: $value;
+}
+
+@mixin configHeading($config) {
+  @each $type, $value in $config {
+    @if ($type == 'fs') {
+      @each $point, $heading in $value {
+        @include mq($point) {
+          font-size: functions.fs($heading);
+        }
+      }
+    } @else if ($type == 'fw') {
+      font-weight: functions.fw($value);
+    } @else if ($type == 'ls') {
+      letter-spacing: $value;
+    }
+  }
+}

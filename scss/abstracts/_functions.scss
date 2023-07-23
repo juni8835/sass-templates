@@ -1,0 +1,26 @@
+@use 'sass:map';
+@use 'colors';
+@use 'variables';
+@use 'typography';
+
+@function clr($type, $size) {
+  $color: map-get(colors.$colors, $type);
+
+  @return map-get($color, $size);
+}
+
+@function fs($size) {
+  @return map-get(typography.$font-sizes, $size);
+}
+
+@function lh($size) {
+  @return map-get(variables.$line-heights, $size);
+}
+
+@function fw($weight) {
+  @return map-get(variables.$font-weights, $weight);
+}
+
+@function bp($point) {
+  @return var(--bp-#{$point});
+}

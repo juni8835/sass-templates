@@ -1,0 +1,68 @@
+@use '../abstracts' as *;
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+  -webkit-tap-highlight-color: transparent;
+  text-size-adjust: 100%;
+  font-size: 62.5%;
+}
+
+body {
+  font-size: fs(base);
+}
+
+::selection {
+  color: clr('secondary', 'dark');
+  background-color: clr('primary', 400);
+}
+
+// .text-4xl {
+//   @include configHeading(
+//     (
+//       fs: (
+//         xs: 4xl,
+//         sm: 5xl,
+//         md: 6xl,
+//         lg: 7xl,
+//       ),
+//       fw: regular,
+//       ls: -0.025rem,
+//     )
+//   );
+// }
+
+@each $heading, $values in $headings {
+  .text-#{$heading} {
+    @each $attr, $value in $values {
+      @if ($attr == 'fontSize') {
+        @each $breakpoint, $size in $value {
+          @include mq($breakpoint) {
+            font-size: fs($size);
+          }
+        }
+      } @else if ($attr == 'fontWeight') {
+        font-weight: fw($value);
+      } @else if ($attr == 'letterSpacing') {
+        letter-spacing: $value;
+      }
+    }
+  }
+}
+// sm: (
+//   fontSize: (
+//     xs: lg,
+//     sm: lg,
+//     md: xl,
+//     lg: 2xl,
+//   )
+// );

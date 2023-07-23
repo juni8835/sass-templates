@@ -1,0 +1,18 @@
+@use '../abstracts' as *;
+
+h1 {
+  color: clr('primary', 400);
+  font-weight: fw(semibold);
+  @include auto-prefix(border-radius, 50%);
+  @include mq(sm) {
+  }
+}
+
+.main-title {
+  @include mq(md) {
+    font-size: fs(7xl);
+  }
+  @include mq(xl) {
+    font-size: fs(9xl);
+  }
+}

@@ -1,0 +1,12 @@
+.error {
+  background-color: #ff1e1e;
+  color: #ffffff;
+}
+
+.btn {
+  padding: 0.7rem 1.6rem;
+
+  &--error {
+    @extend .error;
+  }
+}

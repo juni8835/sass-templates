@@ -1,0 +1,54 @@
+$font-sizes: (
+  xs: 1.2rem,
+  sm: 1.4rem,
+  base: 1.6rem,
+  lg: 1.8rem,
+  xl: 2rem,
+  2xl: 2.4rem,
+  3xl: 3rem,
+  4xl: 3.6rem,
+  5xl: 4.8rem,
+  6xl: 6.4rem,
+  7xl: 7.2rem,
+  8xl: 9.6rem,
+  9xl: 12.8rem,
+);
+
+$line-heights: (
+  xs: 1.6rem,
+  sm: 2rem,
+  base: 2.4rem,
+  lg: 2.8rem,
+  xl: 2.8rem,
+  2xl: 3.2rem,
+  3xl: 3.6rem,
+  4xl: 4rem,
+  5xl: 1,
+  6xl: 1,
+  7xl: 1,
+  8xl: 1,
+  9xl: 1,
+);
+
+$headings: (
+  2xl: (
+    fontSize: (
+      xs: lg,
+      sm: lg,
+      md: xl,
+      lg: 2xl,
+    ),
+    fontWeight: regular,
+    letterSpacing: -0.025rem,
+  ),
+  4xl: (
+    fontSize: (
+      xs: xl,
+      sm: 2xl,
+      md: 3xl,
+      lg: 4xl,
+    ),
+    fontWeight: bold,
+    letterSpacing: -0.025rem,
+  ),
+);

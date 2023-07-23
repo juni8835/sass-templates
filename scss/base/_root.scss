@@ -1,0 +1,10 @@
+@use 'sass:map';
+@use '../abstracts' as *;
+
+:root {
+  // @include varEach('fs', $font-sizes);
+  // @include varEach('lh', $line-heights);
+  // @include varEach('fw', $font-weights);
+  // @include varEach('bp', $breakpoints);
+  @include varEach('clr', $colors);
+}
